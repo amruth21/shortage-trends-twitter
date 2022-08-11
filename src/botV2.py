@@ -1,3 +1,6 @@
+#Utilizes Twitter API v2 requires Essential Access
+#Note cannot upload new Images with v2 API only preexisting media IDs
+
 import tweepy
 from dotenv import load_dotenv, dotenv_values
 
@@ -14,3 +17,8 @@ response = client.create_tweet(
     text="test"
 )
 
+media = client.media_upload("Cat03.jpg")
+ 
+# Post tweet with image
+post_result = client.create_tweet(text="testing image", media_ids=[media.media_id])
+ 
