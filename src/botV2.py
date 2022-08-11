@@ -17,7 +17,7 @@ response = client.create_tweet(
     text="test"
 )
 
-media = client.media_upload("Cat03.jpg")
+media = client.media_upload("../static/Cat03.jpg")
  
 # Post tweet with image
 post_result = client.create_tweet(text="testing image", media_ids=[media.media_id])
