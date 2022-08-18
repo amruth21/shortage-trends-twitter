@@ -71,37 +71,15 @@ def createTweet(geo):
         tweet += "\n" + str(i+1) + ". " + y.replace(" shortage", '')
 
     tweet += "\n" + "Source: Google Trends for " + str(date.today())
-    print(tweet)
+
+    #Generate graphs
     bar = generateID(barChart(arr)).media_id
     pie = generateID(pieChart(arr)).media_id
     bubble = generateID(bubblePlot(arr)).media_id
+    
     api.update_status(status=tweet, media_ids=[bar, pie, bubble], place_id=placeID)
+
 
 createTweet("United Kingdom")
         
     
-
-
-
-
-'''
-#Place ID
-place = api.search_geo(query="United States", granularity="country")
-placeID = place[0].id
-
-arr = pullData()
-
-
-#Create Tweet
-topTen = (arr['query'].to_numpy()[0:10])
-
-tweet = "𝐓𝐨𝐩 𝐒𝐡𝐨𝐫𝐭𝐚𝐠𝐞𝐬 𝐢𝐧 𝐔𝐒𝐀"
-for i, y in enumerate(topTen):
-    tweet += "\n" + str(i+1) + ". " + y.replace(" shortage", '')
-
-print(tweet)
-api.update_status(status=tweet, media_ids=[generateID(bubblePlot(arr)).media_id, generateID(pieChart(arr)).media_id], place_id=placeID)
-
-print(api.verify_credentials().screen_name)
-
-'''
