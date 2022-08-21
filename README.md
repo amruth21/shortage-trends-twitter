@@ -39,7 +39,7 @@ git clone https://github.com/amruth21/shortage-trends-twitter
 
 ### Setting up Dependencies
 
-When setting up the dependencies there is two different avenues which we have provides. You can launch a Conda Virtual Environment if you have Conda installed or can pip install the packages.
+When setting up the dependencies there are two different avenues that are provided. You can launch a Conda Virtual Environment if you have Conda installed or can pip install the packages.
 
 #### Conda
 
