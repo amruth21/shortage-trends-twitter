@@ -12,7 +12,7 @@ The Shortage Trends bot utilizes the Tweepy PIP package to access various Twitte
 
 ## Theory
 
-The Theory behind this Bot is that all the information is fetched from the Google Trends API. The Google Trends website lists the top queries related to a topic and their search popularity relative to each other. So the principle our bot operates on is that when a certain good is in shortage people will be more likely to search for term followed by shortage(ex: chip shortage). By applying this concept when pulling the google trends data for the search term "shortage" all the related top queries will be items that are in shortage. However it is important to cleanse the data for duplicates as well as things that could be search alongside "shortage" that arent actual goods such as key terms like "is, are, how, 2022".  
+The Theory behind this Bot is that all the information is fetched from the Google Trends API. The Google Trends website lists the top queries related to a topic and their search popularity relative to each other. So the principle our bot operates on is that when a certain good is in shortage people will be more likely to search for term followed by shortage(ex: chip shortage). By applying this concept when pulling the google trends data for the search term "shortage" all the related top queries will be items that are in shortage. However it is important to cleanse the data for duplicates as well as things that could be searched alongside "shortage" that arent actual goods such as key terms like "is, are, how, 2022".  
 
 ![Alt text](static/trends.png?raw=true "Trends")
 
