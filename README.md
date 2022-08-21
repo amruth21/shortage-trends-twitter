@@ -13,7 +13,10 @@ The Shortage Trends bot utilizes the Tweepy PIP package to use various Twitter A
 ## Theory
 
 The bot derives its information from the principle that what people tend to search for as shortages such as "chip shortage" tends to be the good/service that is actually in shortage. By applying this principle and pulling google trends data for the search term "shortage" after cleansing I was able to grab a list of the top 10 terms that were googled with shortage(ex: food shortage, formula shortage).
-ADD IMAGE OF GOOGLE TRENDS WEBSITE
+ADD IMAGE OF GOOGLE TRENDS WEBSITE 
+
+![Alt text](static/trends.png?raw=true "Title")
+
 
 ## Getting Started
 
