@@ -1,4 +1,5 @@
 #Utilizes Twitter API v1 requires Elevated Access
+#Can create new media ID's used OAuth1
 import os
 import tweepy
 from trends import *
@@ -7,7 +8,7 @@ from dotenv import load_dotenv, dotenv_values
 
 config = dotenv_values(".env")
 
-if not os.environ.get("PRODUCTION"):
+if not os.environ.get("PRODUCTION"): #loads from env file
     consumer_key = config['consumer_key'] 
     consumer_secret = config['consumer_secret']
 
@@ -15,7 +16,7 @@ if not os.environ.get("PRODUCTION"):
     access_token_secret = config['access_token_secret'] 
 
     bearer_token = config['bearer_token']
-else:
+else: # loads from OS env var set by Heroku
     consumer_key = os.environ['consumer_key'] 
     consumer_secret = os.environ['consumer_secret']
 
@@ -24,15 +25,6 @@ else:
 
     bearer_token = os.environ['bearer_token']
 
-'''
-consumer_key = config['consumer_key'] 
-consumer_secret = config['consumer_secret']
-
-access_token = config['access_token'] 
-access_token_secret = config['access_token_secret'] 
-
-bearer_token = config['bearer_token']
-'''
 
 #Authentication
 auth = tweepy.OAuth1UserHandler(

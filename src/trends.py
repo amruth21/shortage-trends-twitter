@@ -18,14 +18,6 @@ def createImagefromPLT(plt):
     img_buf.seek(0)
     image = Image.open(img_buf)
     return image
-    '''
-    im = IMG.open(img_buf)
-    im.show(title="My Image")
-    return im
-    '''
-    #im = Image.open(img_buf)
-    #im.show(title="My Image")
-    #img_buf.close()
 
 #Generates MatPlotLib pie chart
 def pieChart(arr):
@@ -51,6 +43,7 @@ def pieChart(arr):
 def barChart(arr):
     sum = 0
     y = np.array([])
+    #Grabs top 10 labels(queries)
     labels = arr['query'].to_numpy()
     labels = labels[0:10]
 
