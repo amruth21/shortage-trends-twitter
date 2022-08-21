@@ -23,7 +23,7 @@ else:
     access_token_secret = os.environ['access_token_secret'] 
 
     bearer_token = os.environ['bearer_token']
-    
+
 '''
 consumer_key = config['consumer_key'] 
 consumer_secret = config['consumer_secret']
@@ -54,7 +54,7 @@ def generateID(graph):
     graph.save(b, "PNG")
     b.seek(0)
     fp = io.BufferedReader(b)
-    graph.show()
+    #graph.show()
     return api.media_upload(filename="not applicable", file=fp)
 
 def grabLocation(geo):
