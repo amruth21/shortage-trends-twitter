@@ -1,5 +1,5 @@
 #Utilizes Twitter API v1 requires Elevated Access
-
+import os
 import tweepy
 from trends import *
 from datetime import date
@@ -7,6 +7,24 @@ from dotenv import load_dotenv, dotenv_values
 
 config = dotenv_values(".env")
 
+if not os.environ.get("PRODUCTION"):
+    consumer_key = config['consumer_key'] 
+    consumer_secret = config['consumer_secret']
+
+    access_token = config['access_token'] 
+    access_token_secret = config['access_token_secret'] 
+
+    bearer_token = config['bearer_token']
+else:
+    consumer_key = os.environ['consumer_key'] 
+    consumer_secret = os.environ['consumer_secret']
+
+    access_token = os.environ['access_token'] 
+    access_token_secret = os.environ['access_token_secret'] 
+
+    bearer_token = os.environ['bearer_token']
+    
+'''
 consumer_key = config['consumer_key'] 
 consumer_secret = config['consumer_secret']
 
@@ -14,6 +32,7 @@ access_token = config['access_token']
 access_token_secret = config['access_token_secret'] 
 
 bearer_token = config['bearer_token']
+'''
 
 #Authentication
 auth = tweepy.OAuth1UserHandler(
