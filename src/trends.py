@@ -86,10 +86,8 @@ def bubblePlot(arr):
     buf = io.BytesIO(fig_bytes)
     img = Image.open(buf)
     return img
-    
-    
 
-
+#Uses Google-Trends API to grab raw data
 def pullData(geo):
     #Pulling shortage data
     pytrends.build_payload(kw_list=["shortage"],timeframe="now 1-d",geo=geo)
