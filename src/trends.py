@@ -6,7 +6,6 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import matplotlib.image as Images
 import seaborn as sns
-import kaleido 
 import numpy as np
 from pytrends.request import TrendReq
 pytrends = TrendReq()

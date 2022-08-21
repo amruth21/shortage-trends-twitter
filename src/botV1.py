@@ -80,6 +80,5 @@ def createTweet(geo):
     api.update_status(status=tweet, media_ids=[bar, pie, bubble], place_id=placeID)
 
 
-createTweet("United Kingdom")
         
     
