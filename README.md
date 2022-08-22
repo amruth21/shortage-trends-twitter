@@ -1,5 +1,5 @@
 # shortage-trends-twitter
-A twitter bot programmed using Python3 to fetch and post Shortage trends for Products and Services across multiple regions 
+A twitter bot programmed using Python3 to fetch and post Shortage trends for Products and Services across multiple regions. The bot can be found [@ShortageTracker](https://twitter.com/ShortageTracker)
 
 
 ![alt text](https://img.shields.io/github/languages/top/amruth21/shortage-trends-twitter "test") 
