@@ -15,9 +15,9 @@ def jobCA():
     createTweet("Canada")
 
 #Heroku servers 4 hours ahead
-schedule.every().day.at("01:00").do(jobUSA) #Posts at 9:00pm EST
-schedule.every().day.at("01:15").do(jobUK) #Posts at 9:05pm EST
-schedule.every().day.at("01:30").do(jobCA) #Posts at 9:30pm EST
+schedule.every().day.at("20:00").do(jobUSA) #Posts at 7:00pm EST
+schedule.every().day.at("20:15").do(jobUK) #Posts at 7:15pm EST
+schedule.every().day.at("20:30").do(jobCA) #Posts at 7:30pm EST
 
 while True:
     schedule.run_pending()
