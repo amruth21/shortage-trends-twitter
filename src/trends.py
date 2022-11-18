@@ -87,22 +87,52 @@ def bubblePlot(arr):
     img = Image.open(buf)
     return img
 
+# Utilized to determine if a given word is seen within the seenShortages List
+def containsShortage(word, listVal): 
+
+    for i in listVal:
+        if word.find(i) != -1:
+
+            return True
+
+    return False
+
+
 #Uses Google-Trends API to grab raw data
 def pullData(geo):
     #Pulling shortage data
     pytrends.build_payload(kw_list=["shortage"],timeframe="now 1-d",geo=geo)
     arr = pytrends.related_queries()["shortage"]["top"]
+    currentShortages = []
+
 
     #Cleaning dataframe
     arr = arr[arr['query'].str.contains("what") == False]
     arr = arr[arr['query'].str.contains("is") == False]
     arr = arr[arr['query'].str.contains("how") == False]
+    arr = arr[arr['query'].str.contains("why") == False]
     arr = arr[arr['query'].str.contains(geo) == False]
     arr['query'] = arr['query'].str.replace('2022', '')
     arr = arr[arr['query'].str.contains("shortage") == True]
+
+    #Cleansing shortage data for repeats
+    seenShortages = []
+    for i in arr['query']:
+        #simplies to shorter word so it can be added to seenShortages
+        x = i.replace(" shortage", "")
+        x = x.replace("shortage", "")
+       
+        if(containsShortage(x, seenShortages)):
+            arr = arr[arr['query'].str.contains(i) == False] # removes the original value
+        else:        
+            seenShortages.append(x);
+
+    topTen = (arr['query'].to_numpy()[0:10])
+    tweet = ""
+    for i, y in enumerate(topTen):
+        tweet += "\n" + str(i+1) + ". " + y.replace(" shortage", '')
+
     return arr
-
-
 
 
 
