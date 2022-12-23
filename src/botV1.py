@@ -59,30 +59,41 @@ def createTweet(geo):
 
     if(geo == "United States"):
         arr = pullData("US")
+        location = "USA"
         tweet = "𝐓𝐨𝐩 𝐒𝐡𝐨𝐫𝐭𝐚𝐠𝐞𝐬 𝐢𝐧 𝐔𝐒𝐀"
 
     if(geo == "India"):
         arr = pullData("IN")
+        location = "India"
         tweet = "𝐓𝐨𝐩 𝐒𝐡𝐨𝐫𝐭𝐚𝐠𝐞𝐬 𝐢𝐧 𝐈𝐧𝐝𝐢𝐚"
 
     if(geo == "Canada"):
         arr = pullData("CA")
+        location = "CA"
         tweet = "𝐓𝐨𝐩 𝐒𝐡𝐨𝐫𝐭𝐚𝐠𝐞𝐬 𝐢𝐧 𝐂𝐚𝐧𝐚𝐝𝐚"
     
     if(geo == "United Kingdom"):
         placeID = "6416b8512febefc9"
+        location = "UK"
         arr = pullData("GB")
         tweet = "𝐓𝐨𝐩 𝐒𝐡𝐨𝐫𝐭𝐚𝐠𝐞𝐬 𝐢𝐧 𝐔𝐧𝐢𝐭𝐞𝐝 𝐊𝐢𝐧𝐠𝐝𝐨𝐦"
 
 
     #Create Tweet
     topTen = (arr['query'].to_numpy()[0:10])
+    hashtag = ""
+    hashtag += "#" + location + " "
 
     for i, y in enumerate(topTen):
-        tweet += "\n" + str(i+1) + ". " + y.replace(" shortage", '')
+        x = y.replace(" shortage", '')
+        if(i < 3):
+            hashtag += "#" + x + " "
+        tweet += "\n" + str(i+1) + ". " + x
 
     tweet += "\n" + "Source: Google Trends for " + str(date.today())
+    tweet += "\n" + hashtag
 
+    
     #Generate graphs
     bar = generateID(barChart(arr)).media_id
     pie = generateID(pieChart(arr)).media_id

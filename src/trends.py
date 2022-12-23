@@ -100,6 +100,8 @@ def containsShortage(word, listVal):
 
 #Uses Google-Trends API to grab raw data
 def pullData(geo):
+
+    
     #Pulling shortage data
     pytrends.build_payload(kw_list=["shortage"],timeframe="now 1-d",geo=geo)
     arr = pytrends.related_queries()["shortage"]["top"]
@@ -127,12 +129,8 @@ def pullData(geo):
         else:        
             seenShortages.append(x);
 
-    topTen = (arr['query'].to_numpy()[0:10])
-    tweet = ""
-    for i, y in enumerate(topTen):
-        tweet += "\n" + str(i+1) + ". " + y.replace(" shortage", '')
-
     return arr
+
 
 
 
