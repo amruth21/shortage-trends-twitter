@@ -81,7 +81,7 @@ def createTweet(geo):
 
     #Create Tweet
     topTen = (arr['query'].to_numpy()[0:10])
-    hashtag = ""
+    hashtag = "#shortage "
     hashtag += "#" + location + " "
 
     for i, y in enumerate(topTen):
